@@ -37,7 +37,10 @@
                                     </a>
                                 </div>
                                 <div class="pt-0">
-                                    <form method="POST" action="{{ route('admin.login') }}" class="my-4">
+
+                                    {{-- {{ route('admin.login') }} اذا بدي استخدم طرق الحماية (Two-factor authentication) --}}
+                                    {{-- {{ route('login') }} اذا بدي استخدم الطرق العادية (Password Only) --}}
+                                    <form method="POST" action="{{ route('login') }}" class="my-4">
                                         @csrf
                                         @if (session('error'))
                                             <div class="alert alert-danger">
