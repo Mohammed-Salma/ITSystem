@@ -47,7 +47,8 @@
                                     </div><!--end col-->
                                 </div>
                             </div>
-<form action="">
+<form action="{{route('profile.store')}}" method="POST" enctype="multipart/form-data">
+    @csrf
 
 <div class="card-body">
 
@@ -75,9 +76,7 @@
     <div class="form-group mb-3 row">
         <label class="form-label">Address</label>
         <div class="col-lg-12 col-xl-12">
-            <textarea class="form-control" name="address">
-                {{$profileData->address}}
-            </textarea>
+            <textarea name="address" class="form-control">{{$profileData->address}}</textarea>
         </div>
     </div>
 
@@ -88,7 +87,7 @@
         </div>
     </div>
 
-     <div class="form-group mb-3 row">
+    <div class="form-group mb-3 row">
         <label class="form-label"></label>
         <div class="col-lg-12 col-xl-12">
             <img id="showImage" src="{{(!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg')}}"
