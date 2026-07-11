@@ -34,7 +34,7 @@
                                                         </div><!--end col-->
                                                     </div>
                                                 </div>
-                                                <form action="{{ route('profile.store') }}" method="POST"
+                                                <form action="{{ route('store.review') }}" method="POST"
                                                     enctype="multipart/form-data">
                                                     @csrf
 
@@ -65,7 +65,7 @@
                                                             <label class="form-label">User Photo</label>
                                                             <div class="col-lg-12 col-xl-12">
                                                                 <input class="form-control" id="image" type="file"
-                                                                    name="photo">
+                                                                    name="image">
                                                             </div>
                                                         </div>
 
@@ -78,7 +78,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                                        <button type="submit" class="btn btn-primary">Add Review</button>
 
 
                                                     </div><!--end card-body-->
