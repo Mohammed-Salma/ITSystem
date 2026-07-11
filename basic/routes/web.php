@@ -41,5 +41,6 @@ Route::middleware('auth')->group(function () {
         Route::post('/store/review', 'StoreReview')->name('store.review');
         Route::get('/edit/review/{id}', 'EditReview')->name('edit.review');
         Route::post('/update/review', 'UpdateReview')->name('update.review');
+        Route::get('/delete/review/{id}', 'DeleteReview')->name('delete.review');
     });
 });

@@ -98,5 +98,21 @@ class ReviewController extends Controller
     }
     //End Method
 
+    public function DeleteReview($id)
+    {
+        $review = Review::find($id);
+        $img = $review->image;
+        unlink($img);
+
+        Review::find($id)->delete();
+
+        $notification = array(
+            'message' => 'Review Deleted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    //End Method
+
 
 }
