@@ -16,4 +16,49 @@ class SliderController extends Controller
         return view('admin.backend.slider.get_slider', compact('slider'));
     }
     //End Method
+
+    public function UpdateSlider(Request $request)
+    {
+        $slider_id = $request->id;
+        $slider = Slider::find($slider_id);
+
+        if ($request->file('image')) {
+            $image = $request->file('image');
+            $manager = new ImageManager(new Driver()); // Install intervention/image first
+
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            $img = $manager->read($image);
+            $img->resize(306, 618)->save('upload/slider/' . $name_gen);
+            $save_url = 'upload/slider/' . $name_gen;
+
+            //Delete Old Image
+            if (file_exists(public_path($slider->image))) {
+                @unlink(public_path($slider->image));
+            }
+
+            Slider::find($slider_id)->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'link' => $request->link,
+                'image' => $save_url,
+            ]);
+            $notification = array(
+                'message' => 'Slider Updated With image Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        } else {
+            Slider::find($slider_id)->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'link' => $request->link,
+            ]);
+            $notification = array(
+                'message' => 'Slider Updated Without image Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        }
+    }
+    //End Method
 }

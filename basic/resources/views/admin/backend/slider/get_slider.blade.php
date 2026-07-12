@@ -34,7 +34,7 @@
                                                         </div><!--end col-->
                                                     </div>
                                                 </div>
-                                                <form action="{{ route('update.review') }}" method="POST"
+                                                <form action="{{ route('update.slider') }}" method="POST"
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $slider->id }}">
@@ -42,7 +42,7 @@
                                                     <div class="card-body">
 
                                                         <div class="form-group mb-3 row">
-                                                            <label class="form-label">Name</label>
+                                                            <label class="form-label">Title</label>
                                                             <div class="col-lg-12 col-xl-12">
                                                                 <input class="form-control" type="text" name="title"
                                                                     value="{{ $slider->title }}">
@@ -82,7 +82,7 @@
                                                         </div>
 
                                                         <button type="submit" class="btn btn-primary">Update
-                                                            Review</button>
+                                                            Slider</button>
 
 
                                                     </div><!--end card-body-->
