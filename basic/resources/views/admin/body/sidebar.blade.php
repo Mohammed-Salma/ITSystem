@@ -81,7 +81,7 @@
                                 <a href="{{ route('all.feature') }}" class="tp-link">All Features</a>
                             </li>
                             <li>
-                                <a href="{{ route('get.slider') }}" class="tp-link">Add Features</a>
+                                <a href="{{ route('add.feature') }}" class="tp-link">Add Features</a>
                             </li>
                         </ul>
                     </div>
