@@ -30,7 +30,7 @@
                                                         </div><!--end col-->
                                                     </div>
                                                 </div>
-                                                <form action="{{ route('update.slider') }}" method="POST"
+                                                <form action="{{ route('update.clarifi') }}" method="POST"
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $clarifi->id }}">
