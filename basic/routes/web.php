@@ -68,4 +68,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/get/clarifies', 'GetClarifies')->name('get.clarifies');
         Route::post('/update/clarifies', 'UpdateClarifies')->name('update.clarifi');
     });
+
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/get/usability', 'GetUsability')->name('get.usability');
+        Route::post('/update/usability', 'UpdateUsability')->name('update.usability');
+    });
 });
