@@ -135,6 +135,24 @@
                     </div>
                 </li>
 
+                <li>
+                    <a href="#faqs" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> FAQs Setup </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="faqs">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('all.faqs') }}" class="tp-link">All FAQs</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('add.faqs') }}" class="tp-link">Add FAQs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <li class="menu-title mt-2">General</li>
 
                 <li>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Clarifi;
 use App\Models\Connect;
+use App\Models\Faq;
 use App\Models\Feature;
 use App\Models\Usability;
 use Illuminate\Http\Request;
@@ -265,5 +266,34 @@ class HomeController extends Controller
     }
     //End Method
 
+    public function AllFaqs()
+    {
+        $faqs = Faq::latest()->get();
+        return view('admin.backend.faqs.all_faqs', compact('faqs'));
+    }
+    //End Method
+
+    public function AddFaqs()
+    {
+        return view('admin.backend.faqs.add_faqs');
+    }
+    //End Method
+
+
+    public function StoreFaqs(Request $request)
+    {
+        Faq::create([
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+
+        $notification = array(
+            'message' => 'Faqs Added Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.faqs')->with($notification);
+    }
+    //End Method
 
 }
