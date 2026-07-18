@@ -8,7 +8,7 @@
         <div class="container-xxl">
             <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
                 <div class="flex-grow-1">
-                    <h4 class="fs-18 fw-semibold m-0">Add Connect</h4>
+                    <h4 class="fs-18 fw-semibold m-0">Edit Connect</h4>
                 </div>
             </div>
 
@@ -28,30 +28,34 @@
                                                 <div class="card-header">
                                                     <div class="row align-items-center">
                                                         <div class="col">
-                                                            <h4 class="card-title mb-0">Add Connect</h4>
+                                                            <h4 class="card-title mb-0">Edit Connect</h4>
                                                         </div><!--end col-->
                                                     </div>
                                                 </div>
-                                                <form action="{{ route('store.connect') }}" method="POST"
+                                                <form action="{{ route('update.connect') }}" method="POST"
                                                     enctype="multipart/form-data">
                                                     @csrf
+
+                                                    <input type="hidden" name="id" value="{{ $connect->id }}">
 
                                                     <div class="card-body">
 
                                                         <div class="form-group mb-3 row">
                                                             <label class="form-label">Title</label>
                                                             <div class="col-lg-12 col-xl-12">
-                                                                <input class="form-control" type="text" name="title">
+                                                                <input class="form-control" type="text" name="title"
+                                                                    value="{{ $connect->title }}">
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group mb-3 row">
                                                             <label class="form-label">Description</label>
                                                             <div class="col-lg-12 col-xl-12">
-                                                                <textarea name="description" class="form-control"></textarea>
+                                                                <textarea name="description" class="form-control">{{ $connect->description }}</textarea>
                                                             </div>
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary">Add Connect</button>
+                                                        <button type="submit" class="btn btn-primary">Update
+                                                            Connect</button>
                                                     </div><!--end card-body-->
                                                 </form>
                                             </div>

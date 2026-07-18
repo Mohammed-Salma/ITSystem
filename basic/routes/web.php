@@ -77,5 +77,9 @@ Route::middleware('auth')->group(function () {
     Route::controller(HomeController::class)->group(function () {
         Route::get('/all/connect', 'AllConnect')->name('all.connect');
         Route::get('/add/connect', 'AddConnect')->name('add.connect');
+        Route::post('/store/connect', 'StoreConnect')->name('store.connect');
+        Route::get('/edit/connect/{id}', 'EditConnect')->name('edit.connect');
+        Route::post('/update/connect', 'UpdateConnect')->name('update.connect');
+        Route::get('/delete/connect/{id}', 'DeleteConnect')->name('delete.connect');
     });
 });
