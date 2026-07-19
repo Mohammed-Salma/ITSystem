@@ -330,5 +330,17 @@ class HomeController extends Controller
     }
     //End Method
 
+    public function UpdateApps(Request $request, $id)
+    {
+        $apps = App::findOrFail($id);
+        $apps->update($request->only(['title', 'description']));
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Apps updated successfully!',
+        ]);
+    }
+    //End Method
+
 
 }
