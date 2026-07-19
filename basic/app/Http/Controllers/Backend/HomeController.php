@@ -7,6 +7,7 @@ use App\Models\Clarifi;
 use App\Models\Connect;
 use App\Models\Faq;
 use App\Models\Feature;
+use App\Models\App;
 use App\Models\Usability;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
