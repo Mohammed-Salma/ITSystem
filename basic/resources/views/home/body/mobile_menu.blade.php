@@ -2,7 +2,7 @@
         <div class="lonyo-menu-area text-center">
             <div class="lonyo-menu-mobile-top">
                 <div class="mobile-logo">
-                    <a href="index.html">
+                    <a href="{{ url('/') }}">
                         <img src="{{ asset('frontend/assets/images/logo/logo-dark.svg') }}" alt="logo">
                     </a>
                 </div>
@@ -13,7 +13,7 @@
             <div class="lonyo-mobile-menu">
                 <ul>
                     <li>
-                        <a href="contact-us.html">Home</a>
+                        <a href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="menu-item-has-children">
                         <a href="#">About Us</a>

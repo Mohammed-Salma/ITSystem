@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\HomeController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -98,3 +99,6 @@ Route::middleware('auth')->group(function () {
         Route::post('/update-app-image/{id}', 'UpdateAppsImage');
     });
 });
+
+// Out of any middleware
+Route::get('/team', [FrontendController::class, 'OurTeam'])->name('our.team');
