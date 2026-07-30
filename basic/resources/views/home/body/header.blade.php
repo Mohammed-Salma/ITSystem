@@ -13,10 +13,10 @@
                         <nav class="main-menu menu-style1 d-none d-lg-block menu-left">
                             <ul>
                                 <li>
-                                    <a href="contact-us.html">Home</a>
+                                    <a href="{{ url('/') }}">Home</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="#">About Us</a>
+                                    <a href="{{ route('about.us') }}">About Us</a>
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="index.html">
@@ -39,7 +39,6 @@
                                 <li>
                                     <a href="contact-us.html">Blog</a>
                                 </li>
-
                                 <li>
                                     <a href="contact-us.html">Contact</a>
                                 </li>

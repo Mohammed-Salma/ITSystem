@@ -112,3 +112,4 @@ Route::middleware('auth')->group(function () {
 
 // Out of any middleware
 Route::get('/team', [FrontendController::class, 'OurTeam'])->name('our.team');
+Route::get('/about', [FrontendController::class, 'AboutUs'])->name('about.us');
