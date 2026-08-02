@@ -112,6 +112,7 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(FrontendController::class)->group(function () {
         Route::get('/get/aboutus', 'GetAboutUs')->name('get.aboutus');
+        Route::post('/update/about', 'UpdateAboutUs')->name('update.about');
     });
 });
 
