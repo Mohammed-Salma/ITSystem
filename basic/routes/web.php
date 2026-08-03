@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\HomeController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\SliderController;
@@ -113,6 +114,10 @@ Route::middleware('auth')->group(function () {
     Route::controller(FrontendController::class)->group(function () {
         Route::get('/get/aboutus', 'GetAboutUs')->name('get.aboutus');
         Route::post('/update/about', 'UpdateAboutUs')->name('update.about');
+    });
+
+    Route::controller(BlogController::class)->group(function () {
+        Route::get('/blog/category', 'BlogCategory')->name('all.blog.category');
     });
 });
 
