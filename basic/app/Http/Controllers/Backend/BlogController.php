@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\BlogCategory;
+use App\Models\BlogPost;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -67,6 +68,19 @@ class BlogController extends Controller
         );
 
         return redirect()->back()->with($notification);
+    }
+    // End Method
+
+    public function AllBlogPost()
+    {
+        $post = BlogPost::latest()->get();
+        return view('admin.backend.post.all_post', compact('post'));
+    }
+    // End Method
+
+    public function AddBlogPost()
+    {
+        return view('admin.backend.blog.add_blog_post');
     }
     // End Method
 
