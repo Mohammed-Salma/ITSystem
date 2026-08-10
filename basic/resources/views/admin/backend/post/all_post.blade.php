@@ -38,7 +38,7 @@
                                                 <img src="{{ asset($item->image) }}" alt="{{ $item->name }}"
                                                     style="width: 70px; height: 40px;">
                                             </td>
-                                            <td>{{ Str::limit($item->long_description, 50, '....') }}</td>
+                                            <td>{!! Str::limit($item->long_description, 50, '....') !!}</td>
                                             <td>
                                                 <a href="{{ route('edit.review', $item->id) }}"
                                                     class="btn btn-success btn-sm">Edit</a>

@@ -80,8 +80,40 @@ class BlogController extends Controller
 
     public function AddBlogPost()
     {
-        return view('admin.backend.blog.add_blog_post');
+        $blogcat = BlogCategory::latest()->get();
+        return view('admin.backend.post.add_post', compact('blogcat'));
     }
     // End Method
+
+        public function StoreBlogPost(Request $request)
+    {
+
+        if ($request->file('image')) {
+            $image = $request->file('image');
+            $manager = new ImageManager(new Driver()); // Install intervention/image first
+
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            $img = $manager->read($image);
+            $img->resize(746, 500)->save('upload/post/' . $name_gen);
+            $save_url = 'upload/post/' . $name_gen;
+
+            BlogPost::create([
+                'blogcat_id' => $request->blogcat_id,
+                'post_title' => $request->post_title,
+                'post_slug' => strtolower(str_replace(' ', '-', $request->post_title)),
+                'long_description' => $request->long_description,
+                'image' => $save_url,
+            ]);
+        }
+
+        $notification = array(
+            'message' => 'Blog Post Added Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.blog.post')->with($notification);
+    }
+    //End Method
+
+
 
 }
