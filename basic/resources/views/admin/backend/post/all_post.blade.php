@@ -32,7 +32,7 @@
                                     @foreach ($post as $key => $item)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td>{{ $item->blogcat_id }}</td>
+                                            <td>{{ $item['blog']['category_name'] }}</td>
                                             <td>{{ $item->post_title }}</td>
                                             <td>
                                                 <img src="{{ asset($item->image) }}" alt="{{ $item->name }}"
