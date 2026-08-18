@@ -43,7 +43,7 @@
                                 </ul>
                             </div>
                             <div class="lonyo-blog-content">
-                                <h2><a href="single-blog.html">{{ $item->post_title }}</a></h2>
+                                <h2><a href="{{url('post/details/'.$item->post_slug)}}">{{ $item->post_title }}</a></h2>
                                 <p>{!! Str::limit($item->long_description, 180, ' ...') !!}</p>
                             </div>
                             <div class="lonyo-blog-btn">
