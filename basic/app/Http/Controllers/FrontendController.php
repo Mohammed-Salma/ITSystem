@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\About;
-use Intervention\Image\ImageManager;
+use App\Models\BlogCategory;
+use App\Models\BlogPost;
+use Illuminate\Http\Request;
 use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 
 class FrontendController extends Controller
 {
@@ -65,9 +67,20 @@ class FrontendController extends Controller
             $notification = array(
                 'message' => 'About Us Updated Without image Successfully',
                 'alert-type' => 'success'
-            );   
+            );
             return redirect()->back()->with($notification);
         }
     }
     //End Method
+
+    public function BlogPage()
+    {
+        $blogcat = BlogCategory::latest()->withCount('posts')->get();
+        $post = BlogPost::latest()->limit(5)->get();
+        $recentpost = BlogPost::latest()->limit(3)->get();
+        return view('home.blog.list_blog', compact('blogcat', 'post', 'recentpost'));
+    }
+    //End Method
+
+
 }
