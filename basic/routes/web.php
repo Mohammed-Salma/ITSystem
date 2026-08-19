@@ -139,3 +139,4 @@ Route::get('/team', [FrontendController::class, 'OurTeam'])->name('our.team');
 Route::get('/about', [FrontendController::class, 'AboutUs'])->name('about.us');
 Route::get('/blog', [FrontendController::class, 'BlogPage'])->name('blog.page');
 Route::get('/post/details/{slug}', [FrontendController::class, 'BlogDetails']);
+Route::get('/blog/category/{id}', [FrontendController::class, 'BlogCategory']);
